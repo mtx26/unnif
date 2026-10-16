@@ -1,9 +1,10 @@
 {
-    "github.copilot.nextEditSuggestions.enabled": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
     "python.REPL.enableREPLSmartSend": false,
     "java.debug.settings.onBuildFailureProceed": true,
     "java.project.sourcePaths": [
-        "bac_1/prog_o_obj/TP/TP_4"
+        "bac_1/prog_o_obj",
+        "bac_1/prog_o_obj/TP/TP_5"
     ],
     "files.associations": {
         "*.s": "mips",
