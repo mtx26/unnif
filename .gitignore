@@ -1,4 +1,9 @@
 # Fichier .gitignore pour un projet Python
+# Fichiers sans extension
+*
+!*/
+!*.?*
+
 __pycache__/
 *.py[cod]
 *.pyo

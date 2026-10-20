@@ -1,5 +1,5 @@
 {
-    "github.copilot.nextEditSuggestions.enabled": true,
+    "github.copilot.nextEditSuggestions.enabled": false,
     "python.REPL.enableREPLSmartSend": false,
     "java.debug.settings.onBuildFailureProceed": true,
     "java.project.sourcePaths": [
