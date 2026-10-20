@@ -7,8 +7,27 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "ugrep: searchterm [file ...]\n");
         return 1;
     }
-    for (int j = 2; j < argc; j++) {
-        FILE *file = fopen(argv[j], "r");
+    int stdin_input = argc == 2;
+    for (int j = stdin_input ? 1 : 2; j < argc; j++) {
+        FILE *file;
+        if (stdin_input) {
+            file = tmpfile();
+            if (file == NULL) { // test si le fichier est bien creer
+                fprintf(stderr, "ugrep: cannot create temporary file\n");
+                return EXIT_FAILURE;
+            }
+            int input;
+            while ((input = fgetc(stdin)) != EOF) { // ecrit tant que c'est pas la fin
+                if (fputc(input, file) == EOF) { //ecriture dans le fichier et erreur si pas ecrit
+                    fprintf(stderr, "ugrep: cannot write to temporary file\n");
+                    fclose(file);
+                    return EXIT_FAILURE;
+                }
+            }
+            rewind(file);
+        } else {
+            file = fopen(argv[j], "r");
+        }
         if (file == NULL) {
             //si le fichier est null
             fprintf(stderr, "ugrep: cannot open file\n");
@@ -26,13 +45,13 @@ int main(int argc, char* argv[]) {
         }
 
         int c;
-        long debut;// début de la ligne actuelle
+        long debut = 0;// début de la ligne actuelle
         //début de l'essaie si premiere lettre correspond. ftell permet d'avoir l'indice de l'endroit ou on se trouve
-        long depart = ftell(file);
         while ((c = fgetc(file)) != EOF) {
             if (c == '\n') {
                 debut = ftell(file);
             }
+            long reprise = ftell(file);  // position après le caractère courant
             int n = 0;
             int flag = 1;
             while (argv[1][n] != '\0') {
@@ -56,9 +75,8 @@ int main(int argc, char* argv[]) {
                 debut = ftell(file); //on passe a la ligne suivante pour continuer le parcour
             } else {
                 //si le flag est a 0 le mot n'est pas trouvé donc on retourne au caractère juste apres le debut de la recherche du mot donc depart + 1
-                fseek(file, depart + 1, SEEK_SET);
+                fseek(file, reprise, SEEK_SET);
             }
-            depart = ftell(file);//on attribut le nouveau depart
         }
         fclose(file);
     }

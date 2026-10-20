@@ -13,11 +13,8 @@ int main(int argc, char *argv[]) {
         }
 
         int c;
-        long debut = ftell(file);
         while ((c = fgetc(file)) != EOF) {
-            if (c != '\n') {
-                long debut = ftell(file);
-            }
+            putchar(c);
         }
 
         fclose(file);

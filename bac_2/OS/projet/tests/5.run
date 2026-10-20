@@ -1,0 +1,1 @@
+./ugrep 'a?c' tests/5.in
