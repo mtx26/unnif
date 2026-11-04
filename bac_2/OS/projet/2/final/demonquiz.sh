@@ -1,3 +1,5 @@
+source "$(dirname "$0")/constants.sh"
+
 if (( $# != 1 )) || [[ ! $1 =~ ^[0-9]+$ ]] ; then
     echo "Entrez un max valide"
     exit 1
@@ -7,6 +9,10 @@ max=$1;
 if (( max < 1 || max > 32767 )); then
     echo "max doit être entre 1 et 32767"
     exit 1
+fi
+
+if [[ ! -e "$PIPE_DIR" ]]; then
+    mkdir "$PIPE_DIR"
 fi
 
 if ! mkfifo "$SERVEUR_PIPE"; then
