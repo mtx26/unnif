@@ -5,10 +5,9 @@ echo "$$" > "$SERVER_PID_FILE"
 cleanup() {
     rm -- "$SERVEUR_PIPE" "$SERVER_PID_FILE"
 
-    if [[ -d "$PIPE_DIR" ]]; then
-        rmdir -- "$PIPE_DIR"
+	if [[ -d "$PIPE_DIR" ]]; then
+        rmdir -- "$PIPE_DIR" 2>/dev/null
     fi
-    
 }
 
 trap cleanup EXIT

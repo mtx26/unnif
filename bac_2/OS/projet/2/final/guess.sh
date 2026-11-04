@@ -8,7 +8,7 @@ cleanup() {
     rm -- "$CLIENT_PIPE"
 
 	if [[ -d "$PIPE_DIR" ]]; then
-        rmdir -- "$PIPE_DIR"
+        rmdir -- "$PIPE_DIR" 2>/dev/null
     fi
 }
 
@@ -42,7 +42,7 @@ while true; do
 
 	read -r server_pid < "$SERVER_PID_FILE"
 	if ! kill -0 "$server_pid" 2>/dev/null; then
-		echo "Erreur : le serveur de quiz ne fonctionne plus." >&2
+		echo "Erreur : le serveur de quiz ne fonctionne plus correctement." >&2
 		exit 1
 	fi
 
