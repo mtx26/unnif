@@ -2,6 +2,7 @@
 
 Ce dépôt contient les travaux pratiques d'informatique réalisés dans le cadre du Bac 1 à l'UMONS. Les exercices portent principalement sur l'algorithmique et la programmation.
 
+
 ## Structure du projet
 
 Deux fichiers : 
