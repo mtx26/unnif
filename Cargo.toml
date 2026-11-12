@@ -1,0 +1,4 @@
+[workspace]
+resolver = "2"
+members = ["home/rust/*/*"]
+exclude = ["home/rust/1/hello_world"]

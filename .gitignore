@@ -41,3 +41,4 @@ tmp/
 
 # Systèmes d'exploitation
 Thumbs.db
+/target
