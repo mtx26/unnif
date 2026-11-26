@@ -1,0 +1,55 @@
+0 001 0000
+ox 1      0
+
+segment 0 
+0010000 =16
+16< 20 dans la pile
+
+0 + 16 = 16 dans la mem physique
+
+
+1100 1010 
+CA
+segment 1 tas
+1001010 = 2 + 8 + 64 = 74
+
+74 - 128 = -54
+
+54 >  20
+or limite du tas
+
+oxfb
+
+f     b
+1111 1011
+segment 1
+1111011 = 123
+123 - 128 = -5
+
+5 < 20
+ok
+512 - 5 = 507
+dan le tas a laddres 507
+ox 1FB
+
+
+
+
+
+
+
+
+
+offset sur 5 bit poru representer 32bit
+256/32 = 8 pages vituelle sur 3 bits
+4096/32 = 128 cadres memoir sur 7bits
+
+adresse virtuelle = numero page + offset  = 3 + 5 = 8 bits
+addres physique = numéro de cadre + offset + 7 + 5 =  12 bits
+
+
+addresse = 32 bit pour adresse , le premier bit pour la validité
+
+ox53 = 010 10101 = 2 eme page et et 21 d'offset
+pas valide car 
+
