@@ -97,16 +97,18 @@ On transforme donc notre problème :
  \[
  G+\Delta^+-\Delta^-\geq0
  \quad\Longleftrightarrow\quad
- G+\Delta^+-\Delta^--A=0.
+ \Delta^+-\Delta^--A=-G.
  \]
+ \item On met les variables à gauche et les constantes à droite,
+ comme dans \(\mathcal A x=b\).
 \end{enumerate}
 On obtient :
 \begin{align*}
  \min\quad &\sum_{(i,j)\in\Omega}t_{ij}\\
  \text{s.c.}\quad
- &G+\Delta^+-\Delta^--A=0,\\
+ &\Delta^+-\Delta^--A=-G,\\
  &(\Delta^+-\Delta^-)\mathbf 1=0,\\
- &\widehat\mu^\top(G+\Delta^+-\Delta^-)=\widehat\mu^\top,\\
+ &\widehat\mu^\top(\Delta^+-\Delta^-)=\widehat\mu^\top-\widehat\mu^\top G,\\
  &t_{ij}-\Delta^+_{ij}+\Delta^-_{ij}-B_{ij}=0
  &&(i,j)\in\Omega,\\
  &t_{ij}+\Delta^+_{ij}-\Delta^-_{ij}-C_{ij}=0
